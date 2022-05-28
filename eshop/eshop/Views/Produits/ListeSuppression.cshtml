@@ -1,0 +1,25 @@
+﻿@model IEnumerable<eshop.Models.Produit>
+@{
+    ViewBag.Title = "ListeSuppression";
+}
+
+<h2>Choisir le produit à supprimer</h2>
+
+<table class="table table-hover">
+    <tr tr class="table-secondary">
+        <th>@Html.DisplayNameFor(model => model.NomProduit)</th>
+        <th>@Html.DisplayNameFor(model => model.Description)</th>
+        <th>@Html.DisplayNameFor(model => model.Prix)</th>
+        <th>@Html.DisplayNameFor(model => model.Quantite)</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.NomProduit)</td>
+            <td>@Html.DisplayFor(model => item.Description)</td>
+            <td>@Html.DisplayFor(model => item.Prix)</td>
+            <td>@Html.DisplayFor(model => item.Quantite)</td>
+            <td>@Html.ActionLink("Supprimer le produit", "Supprimer", new { id = item.IdProduit })</td>
+        </tr>
+    }
+</table>
